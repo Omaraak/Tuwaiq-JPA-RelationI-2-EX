@@ -38,8 +38,9 @@ public class CourseController {
         courseService.delete(id);
         return ResponseEntity.status(200).body("Course deleted successfully");
     }
-    @GetMapping("/findCourseById/{id}")
-    public ResponseEntity<Course> findCourseById(@PathVariable int id) throws ApiException {
-        return ResponseEntity.status(200).body(courseService.findCourseById(id));
+    @GetMapping("/assignCourse/{t_id}/{c_id}")
+    public ResponseEntity findCourseById(@PathVariable int t_id, @PathVariable int c_id) throws ApiException {
+        courseService.assignCourse(t_id, c_id);
+        return ResponseEntity.status(200).body("Assign");
     }
 }
