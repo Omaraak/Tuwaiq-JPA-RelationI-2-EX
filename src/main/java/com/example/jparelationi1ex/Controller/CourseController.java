@@ -38,7 +38,7 @@ public class CourseController {
         courseService.delete(id);
         return ResponseEntity.status(200).body("Course deleted successfully");
     }
-    @GetMapping("/assignCourse/{t_id}/{c_id}")
+    @PutMapping("/assignCourse/{t_id}/{c_id}")
     public ResponseEntity findCourseById(@PathVariable int t_id, @PathVariable int c_id) throws ApiException {
         courseService.assignCourse(t_id, c_id);
         return ResponseEntity.status(200).body("Assign");
